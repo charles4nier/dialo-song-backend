@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_type_playlist_tag_type_playlist_tags",
+  "info": {
+    "displayName": "Type Playlist Tag"
+  },
+  "options": {},
+  "attributes": {
+    "playlist_type_tags": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::playlist-type-tag.playlist-type-tag"
+    }
+  }
+}

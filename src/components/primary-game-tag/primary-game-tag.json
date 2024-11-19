@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_primary_game_tag_primary_game_tags",
+  "info": {
+    "displayName": "Primary Game Tag",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "game_tags": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::game-tag.game-tag"
+    }
+  }
+}

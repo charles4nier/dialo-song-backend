@@ -1,0 +1,55 @@
+'use strict';
+
+module.exports = {
+  // Fonction pour récupérer une playlist par slug passé via query parameter
+  async findBySlug(ctx) {
+    // Récupérer le slug depuis les query parameters
+    const { slug } = ctx.query;
+
+    if (!slug) {
+      return ctx.badRequest('Slug is required');
+    }
+
+    try {
+      // Rechercher une playlist avec le slug spécifié et peupler les relations
+      const entity = await strapi.db.query('api::playlist.playlist').findOne({
+        where: { slug },  // Filtrer par le champ slug
+        populate: {
+          tags: true,  // Peupler les tags associés
+          playlist: {
+            populate: {
+              music: {
+                populate: {
+                  source: true,  // Peupler le champ source (fichier audio)
+                },
+              },
+            },
+          },
+          background_fx: true,  // Peupler les effets de background
+        },
+      });
+
+      // Si la playlist n'est pas trouvée, renvoyer une erreur 404
+      if (!entity) {
+        return ctx.notFound('Playlist non trouvée');
+      }
+
+      // Reformater la réponse pour inclure l'URL du fichier audio dans la musique
+      const response = {
+        ...entity,
+        playlist: entity.playlist.map((item) => ({
+          ...item,
+          music: {
+            ...item.music,
+            url: item.music.source?.url || null,  // Récupérer l'URL du fichier audio
+          },
+        })),
+      };
+
+      // Retourner la playlist trouvée avec l'URL des fichiers audio
+      return response;
+    } catch (error) {
+      ctx.throw(500, 'Erreur lors de la récupération de la playlist');
+    }
+  },
+};

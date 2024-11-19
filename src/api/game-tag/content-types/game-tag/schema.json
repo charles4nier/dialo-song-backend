@@ -1,0 +1,20 @@
+{
+  "kind": "collectionType",
+  "collectionName": "game_tags",
+  "info": {
+    "singularName": "game-tag",
+    "pluralName": "game-tags",
+    "displayName": "Game Tag"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "tag_name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    }
+  }
+}

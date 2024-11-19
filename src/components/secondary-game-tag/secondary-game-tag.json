@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_secondary_game_tag_secondary_game_tags",
+  "info": {
+    "displayName": "Secondary Game Tag",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "game_tags": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::game-tag.game-tag"
+    }
+  }
+}

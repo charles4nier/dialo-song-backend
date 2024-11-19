@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "game_setting_tags",
+  "info": {
+    "singularName": "game-setting-tag",
+    "pluralName": "game-setting-tags",
+    "displayName": "Game Setting Tag"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "tag_name": {
+      "type": "string",
+      "required": true
+    },
+    "playlists": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::playlist.playlist",
+      "mappedBy": "game_setting_tags"
+    }
+  }
+}

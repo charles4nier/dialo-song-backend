@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_categeory_game_tag_category_game_tags",
+  "info": {
+    "displayName": "Category Game Tag"
+  },
+  "options": {},
+  "attributes": {
+    "game_category_tags": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::game-category-tag.game-category-tag"
+    }
+  }
+}

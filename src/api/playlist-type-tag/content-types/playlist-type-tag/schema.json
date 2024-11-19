@@ -1,0 +1,20 @@
+{
+  "kind": "collectionType",
+  "collectionName": "playlist_type_tags",
+  "info": {
+    "singularName": "playlist-type-tag",
+    "pluralName": "playlist-type-tags",
+    "displayName": "Playlist Type Tag"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "tag_name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    }
+  }
+}

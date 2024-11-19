@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_ambiance_game_tag_ambience_game_tags",
+  "info": {
+    "displayName": "Ambience Game Tag"
+  },
+  "options": {},
+  "attributes": {
+    "game_ambience_tags": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::game-ambience-tag.game-ambience-tag"
+    }
+  }
+}
